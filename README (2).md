@@ -39,7 +39,7 @@ GET https://api.maptiler.com/geocoding/{longitude},{latitude}.json?key=API_KEY&l
 1. Daftar gratis di [cloud.maptiler.com](https://cloud.maptiler.com), lalu salin API key dari menu **API Keys**.
 2. Clone repo ini:
    ```bash
-   git clone https://github.com/USERNAME/230_WeatherApi.git
+   git clone https://github.com/vannn-tech/230_WeatherApi.git
    cd 230_WeatherApi
    ```
 3. Jalankan server lokal:
