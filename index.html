@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>230 Weather API · Di mana tempat itu?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <h1>Di mana<br>tempat itu?</h1>
+    <p>Ketik nama lokasi, dapatkan negara, provinsi, kecamatan, dan koordinatnya dari MapTiler Geocoding API.</p>
+  </header>
+
+  <section class="panel">
+    <div class="field">
+      <label for="q">Lokasi</label>
+      <input id="q" type="text" placeholder="contoh: Kasihan, Bantul" autocomplete="off">
+      <button id="clear" aria-label="Hapus input" hidden>✕</button>
+    </div>
+    <div class="btns">
+      <button class="main" id="go">Cari lokasi</button>
+      <button class="alt" id="gps">📡 Pakai GPS</button>
+    </div>
+    <div class="chips" id="popular"></div>
+    <p id="status" role="status"></p>
+    <div class="chips pick" id="others" hidden></div>
+    <div class="tools">
+      <button id="btnKey">🔑 API key</button>
+      <button id="btnInspect">🧩 Inspector</button>
+    </div>
+  </section>
+
+  <section id="result" class="result" hidden>
+    <iframe id="rMap" title="Peta lokasi hasil pencarian" loading="lazy"></iframe>
+    <div class="coords">
+      <div><span>Latitude</span><strong id="rLat">-</strong><button class="copy" data-c="lat" aria-label="Salin latitude">salin</button></div>
+      <div><span>Longitude</span><strong id="rLon">-</strong><button class="copy" data-c="lon" aria-label="Salin longitude">salin</button></div>
+    </div>
+    <dl>
+      <div><dt>Lokasi</dt><dd id="rInput">-</dd></div>
+      <div><dt>Negara</dt><dd><span id="rCountry">-</span> <small id="rCode"></small></dd></div>
+      <div><dt>Provinsi</dt><dd id="rProv">-</dd></div>
+      <div><dt>Kecamatan</dt><dd id="rDist">-</dd></div>
+      <div><dt>Cuaca kini</dt><dd><span id="rWx">-</span><small id="rWxSub"></small></dd></div>
+    </dl>
+    <p id="rFull" class="full"></p>
+  </section>
+
+  <section id="inspector" class="inspector" hidden>
+    <h2>API Inspector</h2>
+    <p id="reqUrl"></p>
+    <pre id="raw"></pre>
+  </section>
+  <footer>230_WeatherApi · MapTiler Geocoding + Open-Meteo</footer>
+</main>
+
+<dialog id="keyDialog">
+  <h3>MapTiler API key</h3>
+  <p>Ambil gratis di <a href="https://cloud.maptiler.com/account/keys/" target="_blank" rel="noopener">cloud.maptiler.com</a>. Key hanya disimpan di browser ini.</p>
+  <input id="keyInput" type="password" placeholder="tempel API key">
+  <div class="row"><button id="keyCancel" class="alt">Batal</button><button id="keySave" class="main">Simpan</button></div>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
